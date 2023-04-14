@@ -13,7 +13,13 @@ rvm install 2.3.8 --with-openssl-dir=/usr/bin/openssl
 gem install bundler -v=1.17.3
 sudo apt-get -y install redis
 sudo service redis-server start
-sudo apt-get install build-essential
+sudo apt-get -y install build-essential
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 /home/linuxbrew/.linuxbrew/bin/brew install mysql@5.7
 /home/linuxbrew/.linuxbrew/bin/brew services start mysql@5.7
+sudo apt-get -y install apt-transport-https
+echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-7.x.list
+sudo apt-get update --allow-insecure-repositories
+sudo apt-get install --allow-unauthenticated -y elasticsearch=7.10.0
+# TODO: add github pull logic to actually have the gem file.
+# bundle _1.17.3_ install
